@@ -31,13 +31,17 @@ overlay.addEventListener('click', closeModal);
 document.addEventListener('keydown', function (e) {
   console.log(e.key);
 
-  if (e.key === 'Escape') {
+  if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+    closeModal();
+  }
+});
+
+/* if (e.key === 'Escape') {
     // Jika modal tidak mengandung hidden class maka tutup modal
     if (!modal.classList.contains('hidden')) {
       closeModal();
     }
-  }
-});
+  } */
 
 // Sebelum diubah ke fungsi close Modal
 /* btnCloseModal.addEventListener('click', function () {
