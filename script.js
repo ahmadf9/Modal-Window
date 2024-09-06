@@ -8,7 +8,6 @@ console.log(btnsOpenModal);
 
 // Membuat dry code. Dengan mengekspor fungsi ini ke fungsi baru.
 const openModal = function () {
-  console.log('Button clicked');
   modal.classList.remove('hidden');
   overlay.classList.remove('hidden');
 };
@@ -27,6 +26,18 @@ for (let i = 0; i < btnsOpenModal.length; i++)
 // Ketika elemen ini (btnCloseModal/overay) di klik, kita ingin menutup modal.
 btnCloseModal.addEventListener('click', closeModal); // Definisikan fungsi
 overlay.addEventListener('click', closeModal);
+
+// Keyboard Event. Memberikan fungsi sebuah parameter (e)
+document.addEventListener('keydown', function (e) {
+  console.log(e.key);
+
+  if (e.key === 'Escape') {
+    // Jika modal tidak mengandung hidden class maka tutup modal
+    if (!modal.classList.contains('hidden')) {
+      closeModal();
+    }
+  }
+});
 
 // Sebelum diubah ke fungsi close Modal
 /* btnCloseModal.addEventListener('click', function () {
